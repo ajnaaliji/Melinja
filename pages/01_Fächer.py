@@ -1,48 +1,42 @@
-import streamlit as st
-
 # ====== Start Login Block ======
 from utils.login_manager import LoginManager
-LoginManager().go_to_login('Start.py')  # wie bei deinem Lehrer
+LoginManager().go_to_login('Start.py') 
 # ====== End Login Block ======
 
-# ====== Seiten-Titel ======
+# ------------------------------------------------------------
+# Fachseite für StudyJournal
+import streamlit as st
+
 st.title("📚 Fächerübersicht")
 
-# ====== Einführung ======
-st.markdown("""
-<div style="background-color: #E7F3FF; padding: 15px; border-radius: 8px;">
-Wähle ein Fach, um Materialien, Notizen oder Lernmethoden zu sehen oder hinzuzufügen.
-</div>
-""", unsafe_allow_html=True)
+# ====== Emoji-Zuweisung pro Fach ======
+fach_emojis = {
+    "Chemie": "🧪",
+    "Klinische Chemie": "💉",
+    "Hämatologie": "🩸",
+    "Histologie": "🔬",
+    "Mikrobiologie": "🦠"
+}
 
-st.write("")
+# ====== Liste deiner Fächer ======
+fächer = list(fach_emojis.keys())
 
-# ====== Fachliste ======
-fächer = [
-    "Chemie",
-    "Klinische Chemie",
-    "Hämatologie",
-    "Histologie",
-    "Mikrobiologie"
-]
-
-# Auswahlfeld für Fach
+# ====== Auswahl eines Fachs ======
 ausgewähltes_fach = st.selectbox("🔍 Wähle ein Fach:", fächer)
 
-# Fach anzeigen
-st.markdown(f"### 📘 Aktuell ausgewähltes Fach: **{ausgewähltes_fach}**")
+# ====== Anzeige mit Emoji ======
+emoji = fach_emojis.get(ausgewähltes_fach, "")
+st.markdown(f"### Fach: {emoji} **{ausgewähltes_fach}**")
 
-# Platzhalter für spätere Inhalte
-st.info("Hier kannst du später Fach-spezifische Inhalte anzeigen, z. B. Dateien, Lernpläne, Methoden…")
+# ====== Eingabe für persönliche Notiz oder Lernstand ======
+notiz_key = f"notiz_{ausgewähltes_fach}"
+default_notiz = st.session_state.get(notiz_key, "")
 
-st.markdown("---")
+notiz = st.text_area("📝 Deine Notiz zu diesem Fach:", value=default_notiz)
 
-# ====== Entwicklerinnen ======
-st.markdown("""
-#### 👩‍💻 Entwicklerinnen:
-**Ajna Aliji**  
-[alijiajn@students.zhaw.ch](mailto:alijiajn@students.zhaw.ch)  
+if st.button("💾 Notiz speichern"):
+    st.session_state[notiz_key] = notiz
+    st.success("Notiz gespeichert!")
 
-**Melisa Dedukic**  
-[dedukmel@students.zhaw.ch](mailto:dedukmel@students.zhaw.ch)
-""")
+# ====== Hinweisbox ======
+st.info("Dies ist ein einfacher Einstieg. Später kannst du z. B. Lernpläne, Dateien oder Checklisten pro Fach speichern.")
