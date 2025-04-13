@@ -2,12 +2,11 @@
 
 ## Projektbeschreibung
 
-Dieses Projekt ist eine Laborjournal-App, welche speziell für Studierende in der biomedizinischen Labordiagnostik (BMLD) entwickelt wurde. Ziel der App ist es, den Studierenden eine digitale Möglichkeit zu bieten, ihre Praktikumsarbeiten und Versuchsprotokolle effizient und zentral zu dokumentieren.
+Dieses Projekt ist eine digitale Laborjournal-App, die speziell für Studierende der biomedizinischen Labordiagnostik (BMLD) entwickelt wurde. Ziel der Anwendung ist es, Studierende bei der Dokumentation ihrer Praktikumsarbeiten und Versuchsprotokolle optimal zu unterstützen.
 
-Die App soll sowohl während des Unterrichts in der Schule als auch bei externen Praktika in Kliniken, Spitälern oder Forschungseinrichtungen verwendet werden können.
+Die App ermöglicht eine strukturierte und zentrale Erfassung von Einträgen und stellt relevante Hilfsunterlagen jederzeit digital zur Verfügung — sowohl während des Unterrichts als auch bei externen Praktika in Kliniken, Spitälern oder Forschungseinrichtungen.
 
-Durch verschiedene Funktionen unterstützt die App die Nutzer*innen dabei, ihre Einträge strukturiert und vollständig zu erfassen, Dateien hochzuladen und wichtige Hilfsunterlagen jederzeit zur Verfügung zu haben.
-
+Durch verschiedene Funktionen wird ein effizienter und praxisnaher Arbeitsablauf gefördert und die Qualität der Dokumentation verbessert.
 
 <br>
 <br>
@@ -16,31 +15,29 @@ Durch verschiedene Funktionen unterstützt die App die Nutzer*innen dabei, ihre 
 
 - Dokumentation von Praktikumsarbeiten und Versuchen
 - Fachauswahl (z.B. Hämatologie, Chemie, Klinische Chemie)
-- Erstellen und Verwalten von neuen Einträgen
-- Upload-Funktion für Bilder, PDFs und Word-Dateien
+- Erstellen, Speichern und Verwalten von Einträgen
+- Upload-Funktion für Bilder, PDFs und Word-Dokumente
 - Zellatlas zur Unterstützung bei der Beurteilung von Zellen
-- Hilfsunterlagen und Referenzwerte abrufbar
+- Abruf von Hilfsunterlagen und Referenzwerten
 - Übersicht und Filterfunktion für vergangene Einträge
 - Export-Funktion (z.B. als PDF)
-- Zukünftige Personalisierungsmöglichkeiten (Dark Mode, Einstellungen)
-
+- Personalisierungsmöglichkeiten (z.B. Dark Mode, Einstellungen)
 
 <br>
 <br>
 
 ## Zielgruppe
 
-Die App richtet sich an Studierende der biomedizinischen Labordiagnostik (BMLD), welche ihre Praktika dokumentieren müssen. Dabei unterstützt die App sowohl in schulischen Übungen als auch in externen Praktika den strukturierten Arbeitsablauf und das Sammeln wichtiger Unterlagen.
-
+Die App richtet sich an Studierende der biomedizinischen Labordiagnostik (BMLD), welche ihre Praktikumsarbeiten sowohl im schulischen Unterricht als auch in externen Praktika effizient dokumentieren möchten.
 
 <br>
 <br>
 
 ## Technische Umsetzung
 
-Die App wurde mit Python und Streamlit umgesetzt.  
-Für die Dokumentation und Planung wurde GitHub sowie Markdown verwendet.
-
+- Programmiert mit: Python & Streamlit
+- Dokumentation & Planung: GitHub, Markdown
+- Wireframes, Produkt-Roadmap und Nutzertests: Siehe `docs/` Verzeichnis
 
 <br>
 <br>
@@ -49,9 +46,8 @@ Für die Dokumentation und Planung wurde GitHub sowie Markdown verwendet.
 
 | Ordner / Datei     | Inhalt / Zweck                                       |
 |-------------------|-------------------------------------------------------|
-| docs/              | Dokumentation (Persona, Produkt-Roadmap, Wireframes) |
-| files/images/      | Bilder und Screenshots (z.B. Wireframes, Referenzwerte
-)             |
+| docs/              | Dokumentation (Persona, Produkt-Roadmap, Wireframes, Nutzertest) |
+| files/images/      | Bilder und Screenshots (z.B. Wireframes, Referenzwerte) |
 | functions/         | Hilfsfunktionen für die App                          |
 | pages/             | Seiten der App (Fächer, Methoden, Materialien)       |
 | utils/             | Zusätzliche Python-Hilfsdateien                      |
@@ -61,14 +57,15 @@ Für die Dokumentation und Planung wurde GitHub sowie Markdown verwendet.
 | Start.py           | Hauptstartdatei der App                              |
 
 ---
+
 <br>
 <br>
 
 ## Weiteres Vorgehen
 
-Die nächsten Schritte bestehen darin, basierend auf den Ergebnissen des Nutzertests und der Produkt-Roadmap weitere Features zu implementieren, das Nutzererlebnis zu optimieren und die App für die finale Abgabe bereitzustellen.
+Basierend auf den Ergebnissen des Nutzertests sowie der Produkt-Roadmap werden die nächsten Schritte umgesetzt, um das Nutzererlebnis weiter zu verbessern und die App für die finale Abgabe bereitzustellen.
 
-Geplante Erweiterungen:
+### Geplante Erweiterungen:
 
 - Optimierung der Navigation und Benutzerführung
 - Ergänzung von Hilfetexten und Platzhaltertexten
@@ -76,3 +73,20 @@ Geplante Erweiterungen:
 - Verbesserung des Upload-Workflows
 - Erweiterung des Zellatlas-Zugriffs
 - Visuelle Anpassungen und Feinschliff
+
+<br>
+<br>
+
+## Kontakt
+
+Ajna Aliji  
+alijiajn@students.zhaw.ch 
+
+Melisa Dedukic 
+dedukmel@students.zhaw.ch  
+
+<br>
+
+## Link zur App
+
+[Zum Laborjournal-Projekt](https://melinja.streamlit.app/)

@@ -1,6 +1,17 @@
 # Produkt-Roadmap: Laborjournal-App für Studierende
 
-Unsere Produkt-Roadmap zeigt die schrittweise Entwicklung unseres Laborjournals. Wir orientieren uns am MVP-Prinzip und erweitern die App gezielt anhand der Erkenntnisse aus unserem Nutzertest, den Wireframes und den Bedürfnissen unserer Persona.
+## Einleitung
+
+Diese Produkt-Roadmap beschreibt die schrittweise Entwicklung unserer Laborjournal-App für Studierende der biomedizinischen Labordiagnostik (BMLD).  
+
+Die Planung orientiert sich am MVP-Prinzip (Minimum Viable Product) und wurde gezielt auf Basis der Ergebnisse aus unserem Nutzertest, den Wireframes und den Bedürfnissen unserer Persona erstellt.  
+
+Die Erweiterungen werden Schritt für Schritt umgesetzt, damit die wichtigsten Funktionen frühzeitig zur Verfügung stehen und die App laufend verbessert werden kann
+
+<br>
+<br>
+
+## Produkt-Roadmap
 
 | Version | Inhalt / Features | Ziel / Begründung |
 |---------|-------------------|-------------------|
@@ -13,8 +24,15 @@ Unsere Produkt-Roadmap zeigt die schrittweise Entwicklung unseres Laborjournals.
 
 ---
 
+<br>
+<br>
+
 ## Fazit zur Produkt-Roadmap
 
-Die Roadmap basiert auf den Erkenntnissen aus unserem Nutzertest und den Wireframes. Die Studierenden sollen bereits ab V1.0 die wichtigsten Funktionen nutzen können, um ihre Praktikumsarbeiten vollständig in der App zu dokumentieren. Erweiterungen wie Uploads, Suchfunktionen und Exportmöglichkeiten bauen auf den Basisfunktionen auf und sorgen für mehr Komfort und Übersichtlichkeit.
+Unsere Produkt-Roadmap zeigt eine realistische und zielgerichtete Planung für die Entwicklung unseres Laborjournals.  
 
-Die Vision in V5.0 zeigt zusätzliche Möglichkeiten, wie sich die App langfristig weiterentwickeln könnte, um noch stärker auf individuelle Nutzerbedürfnisse einzugehen.
+Die App bietet bereits ab Version 1.0 die zentralen Funktionen zur Dokumentation von Praktikumsarbeiten.  
+
+Darauf aufbauend werden in den folgenden Versionen weitere Funktionen ergänzt, um die Bedienbarkeit und Flexibilität für die Studierenden zu erhöhen.  
+
+Die Vision in Version 5.0 zeigt zusätzliche Möglichkeiten, wie sich die App langfristig weiterentwickeln könnte, um noch stärker auf individuelle Nutzerbedürfnisse einzugehen.
