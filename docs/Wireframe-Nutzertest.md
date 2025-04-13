@@ -3,7 +3,7 @@
 ## Hypothesen und Bewertung
 
 ### Haupt-Hypothese:
-Wir glauben, dass Studierende mit unserem Labor-Journal ihre Praktikumsarbeiten primär direkt in der App dokumentieren — bei Bedarf aber auch externe Dokumente (wie Word-Dateien) hochladen können, um ihre Unterlagen vollständig an einem Ort zu haben.
+Wir glauben, dass Studierende mit unserem Labor-Journal ihre Praktikumsarbeiten primär direkt in der App dokumentieren, bei Bedarf aber auch externe Dokumente (wie Word-Dateien) hochladen können, um ihre Unterlagen vollständig an einem Ort zu haben.
 
 ### Teil-Hypothesen:
 - Die Startseite ist übersichtlich und leicht verständlich.
@@ -69,5 +69,4 @@ Der Nutzertest hat gezeigt, dass unser Konzept grundsätzlich gut verständlich 
 - Optimierung der Navigation
 - Hilfetexte ergänzen
 - Icons einfügen
-- Filter- und Suchfunktion implementieren
 - Zellatlas-Zugriff klarer gestalten
