@@ -1,3 +1,3 @@
 # Persona
 
-![Persona](../files/images/0012.png)
+![Persona](../files/images/0018.png)
