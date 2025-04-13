@@ -80,10 +80,10 @@ Basierend auf den Ergebnissen des Nutzertests sowie der Produkt-Roadmap werden d
 ## Kontakt
 
 Ajna Aliji  
-alijiajn@students.zhaw.ch 
+[alijiajna@students.zhaw.ch](mailto:alijiajna@students.zhaw.ch)
 
-Melisa Dedukic 
-dedukmel@students.zhaw.ch  
+Melisa Dedukic  
+[dedukmel@students.zhaw.ch](mailto:dedukmel@students.zhaw.ch)
 
 <br>
 
