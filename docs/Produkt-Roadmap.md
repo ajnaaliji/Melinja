@@ -15,7 +15,7 @@ Die Erweiterungen werden Schritt für Schritt umgesetzt, damit die wichtigsten F
 
 | Version | Inhalt / Features | Ziel / Begründung |
 |---------|-------------------|-------------------|
-| V0.1    | Grundgerüst der App, Navigation zwischen Seiten, Statische Inhalte (Wireframes) | Technisches Setup und erste Struktur der App bereitstellen. |
+| V0.1    | Grundgerüst der App, Navigation zwischen Seiten, Statische Inhalte (Wireframes), Multiuser login | Technisches Setup und erste Struktur der App bereitstellen, |
 | V1.0    | Versuchsdokumentation: Einträge zu Praktika und Versuchen anlegen, Eingabe von Datum, Ziel, Arbeitsschritten, Abspeichern und Laden von Einträgen | Studierende sollen einfache Protokolle erfassen können, da dies im Test als Basisfunktion erwartet wurde. |
 | V2.0    | Dateiverwaltung und Uploads: Hochladen von Bildern (Mikroskopie), Anhängen von PDF-/Word-Dokumenten | Nutzer*innen wünschen sich laut Test die Möglichkeit, bestehende Dateien in die App zu integrieren. |
 | V3.0    | Organisation und Übersicht: Übersicht nach Fach und Semester, Suchfunktion nach Datum/Titel/Fach, Filtermöglichkeiten | Der Nutzertest hat gezeigt, dass eine bessere Übersichtlichkeit und Suche gewünscht wird. |
