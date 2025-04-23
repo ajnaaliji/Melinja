@@ -15,11 +15,12 @@ img_neutro = load_icon_base64("assets/neutrophil.png")
 img_lympho = load_icon_base64("assets/lymphocyte.png")
 img_platelet = load_icon_base64("assets/platelet.png")
 img_title = load_icon_base64("assets/blood-count.png")
+img_blood = load_icon_base64("assets/blood.png")
 
 st.markdown(f"""
-<h1 style='display: flex; align-items: center; gap: 12px;'>
+<h1 style='display: flex; align-items: center; gap: 24px;'>
     Zellzählung {fach}
-    <img src='data:image/png;base64,{img_title}' width='42'>
+    <img src='data:image/png;base64,{img_blood}' width='50'>
 </h1>
 """, unsafe_allow_html=True)
 
@@ -113,7 +114,7 @@ rb_felder = [
 ]
 for feld in rb_felder:
     st.selectbox(feld, ["", "+", "++", "+++"] , key=f"rb_{feld}")
-st.text_input("Sonstiges – Rotes BB", key="rb_sonstiges")
+st.text_area("Sonstiges:", key="rb_sonstiges", height=80)
 
 st.markdown(f"""
 <h3 style='display: flex; align-items: center; gap: 10px;'>
@@ -129,7 +130,7 @@ gb_felder = [
 ]
 for feld in gb_felder:
     st.selectbox(feld, ["", "+", "++", "+++"] , key=f"gb_{feld}")
-st.text_input("Sonstiges – Neutrophileblock", key="gb_sonstiges")
+st.text_area("Sonstiges:", key="ng_sonstiges", height=80)
 
 st.markdown(f"""
 <h3 style='display: flex; align-items: center; gap: 10px;'>
@@ -141,7 +142,7 @@ st.markdown(f"""
 ly_felder = [">10% LGL", "reaktiv", "pathologisch", "lymphoplasmozytoid"]
 for feld in ly_felder:
     st.selectbox(feld, ["", "+", "++", "+++"] , key=f"ly_{feld}")
-st.text_input("Sonstiges – Lymphozyten", key="ly_sonstiges")
+st.text_area("Sonstiges:", key="lc_sonstiges", height=80)
 
 st.markdown(f"""
 <h3 style='display: flex; align-items: center; gap: 10px;'>
@@ -153,7 +154,9 @@ st.markdown(f"""
 th_felder = ["Grosse Formen", "Riesenformen", "Agranulär"]
 for feld in th_felder:
     st.selectbox(feld, ["", "+", "++", "+++"] , key=f"th_{feld}")
-st.text_input("Sonstiges – Thrombozyten", key="th_sonstiges")
+st.text_area("Sonstiges:", key="tc_sonstiges", height=80)
 
 st.markdown("---")
-st.button("🔙 Zurück zur Datei-Übersicht", on_click=lambda: st.switch_page("pages/01_Datei.py"))
+# ==== Zurück-Button ====
+if st.button("🔙 Zurück"):
+    st.switch_page("pages/01_Datei.py")

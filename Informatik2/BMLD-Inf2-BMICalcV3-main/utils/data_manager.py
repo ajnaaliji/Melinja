@@ -212,7 +212,6 @@ class DataManager:
         for key in keys:
             self.save_data(key)
 
-
     def append_record(self,session_state_key, record_dict):
         """
         Append a new record to a value stored in the session state. The value must be either a list or a DataFrame.
@@ -244,3 +243,7 @@ class DataManager:
         
         st.session_state[session_state_key] = data_value
         self.save_data(session_state_key)
+
+    
+
+

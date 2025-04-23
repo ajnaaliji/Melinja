@@ -1,23 +1,55 @@
 import streamlit as st
 import pandas as pd
+import os
+import base64
 
+# ===== Login-Schutz =====
+if "authentication_status" not in st.session_state or not st.session_state["authentication_status"]:
+    st.switch_page("Start")
+
+# ===== Bilder laden =====
+def load_icon_base64(path):
+    with open(path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+
+icons = {
+    "chemie": load_icon_base64("assets/adrenaline.png"),
+    "haematologie": load_icon_base64("assets/blood.png"),
+    "klinische chemie": load_icon_base64("assets/rna.png")
+}
+
+# ===== Seiteneinstellungen =====
 st.set_page_config(page_title="Fachansicht", page_icon="📂")
 
-# ==== Session-Parameter auslesen ====
+# ===== Session-Parameter auslesen =====
 fach_key = st.session_state.get("fach", "").lower().strip()
 ansicht = st.session_state.get("ansicht", "start").lower().strip()
 
 fach_namen = {
-    "chemie": "⚗️ Chemie",
-    "haematologie": "🩸 Hämatologie",
-    "klinische chemie": "🧬 Klinische Chemie"
+    "chemie": "Chemie",
+    "haematologie": "Hämatologie",
+    "klinische chemie": "Klinische Chemie"
 }
-fach = fach_namen.get(fach_key, "📁 Unbekannt")
 
-# ==== Überschrift ====
-st.markdown(f"# {fach}")
+csv_pfade = {
+    "chemie": "data/data_chemie.csv",
+    "haematologie": "data/data_haematologie.csv",
+    "klinische chemie": "data/data_klinische_chemie.csv"
+}
 
-# ==== Navigation innerhalb der Seite ====
+fach = fach_namen.get(fach_key, "Unbekannt")
+dateipfad = csv_pfade.get(fach_key)
+fach_icon = icons.get(fach_key)
+
+# ===== Fachüberschrift mit Bild-Icon =====
+st.markdown(f"""
+<h1 style='display: flex; align-items: center; gap: 20px; font-size: 36px;'>
+    {fach}
+    <img src="data:image/png;base64,{fach_icon}" width="42">
+</h1>
+""", unsafe_allow_html=True)
+
+# ===== Navigation =====
 col1, col2, col3 = st.columns(3)
 with col1:
     if st.button("🏠 Start"):
@@ -30,8 +62,7 @@ with col2:
         elif fach_key == "klinische chemie":
             st.switch_page("pages/04_Klinische Chemie.py")
         elif fach_key == "chemie":
-            st.session_state["ansicht"] = "neu"
-            st.rerun()
+            st.switch_page("pages/03_Chemie.py")
 
 with col3:
     if fach_key == "haematologie":
@@ -41,28 +72,37 @@ with col3:
         if st.button("📊 Referenzwerte"):
             st.switch_page("pages/07_Referenzwerte.py")
 
-# ==== Startansicht ====
+# ===== Ansicht: Start (Eintragsübersicht) =====
 if ansicht == "start":
-    st.markdown("### Was möchtest du tun?")
+    st.markdown("### Vergangene Einträge anzeigen und bearbeiten")
 
-    eintraege = pd.DataFrame({
-        "datum": ["2025-04-10", "2025-04-05", "2025-03-28"],
-        "titel": [f"{fach} – Versuch A", f"{fach} – Analyse B", f"{fach} – Versuch C"]
-    })
+    if dateipfad and os.path.exists(dateipfad):
+        df = pd.read_csv(dateipfad)
 
-    suche = st.text_input("🔍 Suche nach Titel oder Datum")
+        titel_filter = st.text_input("🔍 Suche nach Titel")
+        datum_filter = st.date_input("📅 Filter nach Datum", format="YYYY-MM-DD")
+        datum_str = datum_filter.strftime("%Y-%m-%d") if datum_filter else None
 
-    gefiltert = eintraege[
-        eintraege["titel"].str.contains(suche, case=False) |
-        eintraege["datum"].str.contains(suche)
-    ]
+        gefiltert = df.copy()
+        if titel_filter:
+            gefiltert = gefiltert[gefiltert["titel"].str.contains(titel_filter, case=False)]
+        if datum_str and "datum" in gefiltert.columns:
+            gefiltert = gefiltert[gefiltert["datum"] == datum_str]
 
-    st.markdown("### Vergangene Einträge")
-    for _, row in gefiltert.iterrows():
-        if st.button(f"{row['datum']} – {row['titel']}"):
-            st.success(f"👉 Du hast **{row['titel']}** ausgewählt.")
-
-# ==== Nur Chemie: Placeholder für Neuansicht ====
-elif ansicht == "neu":
-    st.markdown("### ✍️ Neuer Eintrag")
-    st.info(f"Hier kannst du bald neue Einträge für **{fach}** hinzufügen.")
+        st.markdown("#### Gefundene Einträge")
+        for index, row in gefiltert.iterrows():
+            col1, col2 = st.columns([6, 2])
+            with col1:
+                st.markdown(f"**{row['datum']} – {row['titel']}**")
+            with col2:
+                if st.button(f"✏️ Bearbeiten {index}", key=f"edit_{index}"):
+                    zielseite = {
+                        "chemie": "03_Chemie.py",
+                        "haematologie": "02_Haematologie.py",
+                        "klinische chemie": "04_Klinische Chemie.py"
+                    }.get(fach_key)
+                    st.query_params["edit"] = index
+                    st.query_params["fach"] = fach_key
+                    st.switch_page(f"pages/{zielseite}")
+    else:
+        st.info("Noch keine gespeicherten Einträge für dieses Fach.")

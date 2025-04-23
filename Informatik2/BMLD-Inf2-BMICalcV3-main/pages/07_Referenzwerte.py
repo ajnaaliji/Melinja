@@ -1,8 +1,21 @@
 import streamlit as st
+import base64
 
 st.set_page_config(page_title="Referenzwerte", page_icon="📊")
 
-st.title("📊 Referenzwerte – Klinische Chemie")
+# ==== Titel und Icon ====
+def load_icon_base64(path):
+    with open(path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+    
+img_reference = load_icon_base64("assets/book.png")
+
+st.markdown(f"""
+<h1 style='display: flex; align-items: center; gap: 24px;'>
+    Referenzwerte
+    <img src='data:image/png;base64,{img_reference}' width='50'>
+</h1>
+""", unsafe_allow_html=True)
 
 # Bildpfade für Klinische Chemie
 referenzbilder = {

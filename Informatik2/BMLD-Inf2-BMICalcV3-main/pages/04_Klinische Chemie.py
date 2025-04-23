@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
+import base64
 
 # ==== Dateipfad zur CSV definieren ====
 dateipfad = "data/data_klinische_chemie.csv"
@@ -18,8 +19,18 @@ def lade_eintrag(eintrag_id):
 # ==== Vorbefüllung (wenn Bearbeiten) ====
 eintrag = lade_eintrag(eintrag_id) if bearbeiten else {}
 
-# ==== Formular ====
-st.title("🧪 Neuer Eintrag – Klinische Chemie")
+def load_icon_base64(path):
+    with open(path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+    
+img_clinic = load_icon_base64("assets/clinical_chemistry.png")
+
+st.markdown(f"""
+<h1 style='display: flex; align-items: center; gap: 24px;'>
+    Klinische Chemie
+    <img src='data:image/png;base64,{img_clinic}' width='50'>
+</h1>
+""", unsafe_allow_html=True)
 
 from datetime import datetime
 
